@@ -1,0 +1,11 @@
+Version 0.0.0[May 13th,2020]
+1. support header(#,##,###,...,######);
+
+Version 0.1.0[May 14th,2020]
+1. support strong(**,__);
+
+Version 0.2.0[May 14th,2020]
+1. support italic(*,_);
+
+Version 0.2.1[May 14th,2020]
+1. Fix bug on the case of '***' or '___';
