@@ -6,6 +6,8 @@ show-markdown 或许可以帮到您！
 
 show-markdown 可以将 Markdown 代码转换为 HTML 代码。
 
+[Getting Start!](https://github.com/zxp2019/show-markdown/wiki/Getting-Start)
+
 # 注意
 
 本项目尚在开发，因此功能尚不完全。同时我们正在尽快编写本项目 Wiki。
