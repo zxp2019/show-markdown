@@ -1,8 +1,10 @@
 #include <string>
 #include <stack>
 #include <iostream>
+#include <algorithm>
 #ifndef MARKDOWN_SHOW_H_
 #define MARKDOWN_SHOW_H_ 
+#define MIN_HEADER=6;
 using namespace std;
 namespace md
 {
@@ -13,35 +15,35 @@ namespace md
 			{
 //				cout<<mdCode<<endl;
 				int mdCodeLength=mdCode.length();
-				if(mdCodeLength<0)
+				if(mdCodeLength<=0)
 				{
-					return "ERROR 201: Error with this program while dividing this line, please tell the developer this problem.";
-				}
-				if(!mdCodeLength)
-				{
-					return "";
+					return "ERROR 201:  Too short.";
 				}
 				string html="";
 				//if header
 				if(mdCode[0]=='#')
 				{
 					//Count the number of '#'s at first.
-					int num=0;
+					int num=0,end=0;
 					for(int i=0;i<mdCodeLength;i++)
 					{
-						if(num>6)
+						if(mdCode[i]=='#') 
 						{
-							return "ERROR 101: Have more than 6 \'#\'s. Line:[" +mdCode+"]"; 
+							end=i;
+							num++;
+						}
+						if(num > MIN_HEADER) 
+						{
+							num=MIN_HEADER;
 						}
 						if(mdCode[i]!='#')
 						{
 							break;
 						}
-						num++;
 					}
-					if(mdCode[num]!=' ')
+					if(mdCode[end+1]!=' ')
 					{
-						return "ERROR 102: Expected a space(\' \') after the \'#\'s. Line:["+mdCode+"]";
+						return mdCode;
 					}
 					//Show this line
 					string tmpNum="";
