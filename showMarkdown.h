@@ -15,7 +15,11 @@ namespace md
 			{
 //				cout<<mdCode<<endl;
 				int mdCodeLength=mdCode.length();
-				if(mdCodeLength<=0)
+				if(mdCodeLength == 0)
+				{
+					retrun "";
+				}
+				if(mdCodeLength<0)
 				{
 					return "ERROR 201:  Too short.";
 				}
