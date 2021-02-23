@@ -24,15 +24,24 @@ namespace md
 				if(mdCode[0]=='#')
 				{
 					//Count the number of '#'s at first.
-					int i;
-					for(int i=0;i<min(MIN_HEADER,mdCodeLength);i++)
+					int num=0,end=0;
+					for(int i=0;i<mdCodeLength;i++)
 					{
+						if(mdCode[i]=='#') 
+						{
+							end=i;
+							num++;
+						}
+						if(num > MIN_HEADER) 
+						{
+							num=MIN_HEADER;
+						}
 						if(mdCode[i]!='#')
 						{
 							break;
 						}
 					}
-					if(mdCode[num]!=' ')
+					if(mdCode[end+1]!=' ')
 					{
 						return mdCode;
 					}
